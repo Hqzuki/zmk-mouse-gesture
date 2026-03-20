@@ -39,6 +39,11 @@ properties:
     default: 500
     description: "Time in milliseconds to stop processing for next gesture after the execution of a gesture. This is useful to prevent unexpected double gestures."
 
+  mac-layer:
+    type: int
+    default: -1
+    description: "Layer number that selects Mac-specific bindings. When negative, Mac-specific switching is disabled."
+
 child-binding:
   description: "Mouse gesture definition"
   properties:
@@ -49,8 +54,15 @@ child-binding:
 
     bindings:
       type: phandle-array
-      required: true
-      description: "Behaviors to be invoked when this gesture is detected"
+      description: "Default/fallback behaviors to be invoked when this gesture is detected. Used as Win bindings when bindings-win is omitted."
+
+    bindings-win:
+      type: phandle-array
+      description: "Behaviors to be invoked when this gesture is detected while Mac layer is not active"
+
+    bindings-mac:
+      type: phandle-array
+      description: "Behaviors to be invoked when this gesture is detected while Mac layer is active"
 
     wait-ms:
       type: int
