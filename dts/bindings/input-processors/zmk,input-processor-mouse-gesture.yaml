@@ -58,10 +58,12 @@ child-binding:
 
     win-bindings:
       type: phandle-array
+      specifier-space: binding
       description: "Behaviors to be invoked when this gesture is detected while Mac layer is not active"
 
     mac-bindings:
       type: phandle-array
+      specifier-space: binding
       description: "Behaviors to be invoked when this gesture is detected while Mac layer is active"
 
     wait-ms:
