@@ -645,31 +645,31 @@ static const struct zmk_input_processor_driver_api input_processor_mouse_gesture
 
 #define DECLARE_GESTURE_CHILD(node_id)                                                     \
     DECLARE_BINDING_ARRAY(node_id, gesture_pattern_bindings_default_##node_id, bindings);  \
-    DECLARE_BINDING_ARRAY(node_id, gesture_pattern_bindings_win_##node_id, bindings_win);  \
-    DECLARE_BINDING_ARRAY(node_id, gesture_pattern_bindings_mac_##node_id, bindings_mac);  \
+    DECLARE_BINDING_ARRAY(node_id, gesture_pattern_bindings_win_##node_id, win_bindings);  \
+    DECLARE_BINDING_ARRAY(node_id, gesture_pattern_bindings_mac_##node_id, mac_bindings);  \
     static const uint8_t gesture_pattern_seq_##node_id[] = DT_PROP(node_id, pattern);
 
 #define GESTURE_PATTERN_WIN_BINDINGS_LEN(node_id)                                          \
-    COND_CODE_1(DT_NODE_HAS_PROP(node_id, bindings_win),                                   \
-                (DT_PROP_LEN(node_id, bindings_win)),                                      \
+    COND_CODE_1(DT_NODE_HAS_PROP(node_id, win_bindings),                                   \
+                (DT_PROP_LEN(node_id, win_bindings)),                                      \
                 (COND_CODE_1(DT_NODE_HAS_PROP(node_id, bindings),                          \
                              (DT_PROP_LEN(node_id, bindings)),                             \
                              (0))))
 
 #define GESTURE_PATTERN_MAC_BINDINGS_LEN(node_id)                                          \
-    COND_CODE_1(DT_NODE_HAS_PROP(node_id, bindings_mac),                                   \
-                (DT_PROP_LEN(node_id, bindings_mac)),                                      \
+    COND_CODE_1(DT_NODE_HAS_PROP(node_id, mac_bindings),                                   \
+                (DT_PROP_LEN(node_id, mac_bindings)),                                      \
                 (0))
 
 #define GESTURE_PATTERN_WIN_BINDINGS_PTR(node_id)                                          \
-    COND_CODE_1(DT_NODE_HAS_PROP(node_id, bindings_win),                                   \
+    COND_CODE_1(DT_NODE_HAS_PROP(node_id, win_bindings),                                   \
                 (gesture_pattern_bindings_win_##node_id),                                  \
                 (COND_CODE_1(DT_NODE_HAS_PROP(node_id, bindings),                          \
                              (gesture_pattern_bindings_default_##node_id),                 \
                              (NULL))))
 
 #define GESTURE_PATTERN_MAC_BINDINGS_PTR(node_id)                                          \
-    COND_CODE_1(DT_NODE_HAS_PROP(node_id, bindings_mac),                                   \
+    COND_CODE_1(DT_NODE_HAS_PROP(node_id, mac_bindings),                                   \
                 (gesture_pattern_bindings_mac_##node_id),                                  \
                 (NULL))
 
