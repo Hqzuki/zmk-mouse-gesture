@@ -54,13 +54,13 @@ child-binding:
 
     bindings:
       type: phandle-array
-      description: "Default/fallback behaviors to be invoked when this gesture is detected. Used as Win bindings when bindings-win is omitted."
+      description: "Default/fallback behaviors to be invoked when this gesture is detected. Used as Win bindings when win-bindings is omitted."
 
-    bindings-win:
+    win-bindings:
       type: phandle-array
       description: "Behaviors to be invoked when this gesture is detected while Mac layer is not active"
 
-    bindings-mac:
+    mac-bindings:
       type: phandle-array
       description: "Behaviors to be invoked when this gesture is detected while Mac layer is active"
 
