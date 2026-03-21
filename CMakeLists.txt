@@ -9,6 +9,7 @@ if(CONFIG_ZMK_MOUSE_GESTURE)
       src/behaviors/behavior_mouse_gesture.c
       src/events/mouse_gesture_state_changed.c
       src/input_processors/input_processor_mouse_gesture.c
+      src/input_processors/input_processor_axis_lock.c
     )
   endif()
 endif()
