@@ -1,0 +1,27 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Axis Lock Input Processor
+
+compatible: "zmk,input-processor-axis-lock"
+
+properties:
+  "#input-processor-cells":
+    type: int
+    const: 0
+    description: "Number of cells in input processor specifier"
+
+  lock-threshold:
+    type: int
+    default: 24
+    description: "Minimum combined movement before locking to X or Y axis"
+
+  dominance-ratio-percent:
+    type: int
+    default: 140
+    description: "Required dominance ratio to lock an axis. 140 means 1.4x stronger than the other axis"
+
+  idle-timeout-ms:
+    type: int
+    default: 80
+    description: "Reset axis lock after this many milliseconds without movement"
