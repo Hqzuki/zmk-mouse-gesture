@@ -11,6 +11,10 @@ properties:
     const: 0
     description: "Number of cells in input processor specifier"
 
+  track-remainders:
+    type: boolean
+    description: "Whether to track remainders"
+
   lock-threshold:
     type: int
     default: 24
