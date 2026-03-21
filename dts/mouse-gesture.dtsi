@@ -17,6 +17,15 @@
         // gesture-cooldown-ms = <500>;
     };
 
+    /omit-if-no-ref/ zip_axis_lock: zip_axis_lock {
+        compatible = "zmk,input-processor-axis-lock";
+        #input-processor-cells = <0>;
+
+        lock-threshold = <24>;
+        dominance-ratio-percent = <140>;
+        idle-timeout-ms = <80>;
+    };
+
     /omit-if-no-ref/ mouse_gesture: mouse_gesture {
         compatible = "zmk,behavior-mouse-gesture";
         #binding-cells = <0>;
